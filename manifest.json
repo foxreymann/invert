@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Fox Invert",
+    "version": "1.0",
+    "description": "Inverts website colors using CSS filter.",
+    "icons": {
+        "16": "icon.png",
+        "32": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [
+                "content.css"
+            ]
+        }
+    ]
+}
