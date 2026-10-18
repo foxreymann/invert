@@ -1,13 +1,27 @@
 {
     "manifest_version": 3,
     "name": "Fox Invert",
-    "version": "1.0",
-    "description": "Inverts website colors using CSS filter.",
+    "version": "1.1",
+    "description": "Inverts website colors using CSS filter. Click the icon to toggle per domain.",
     "icons": {
         "16": "icon.png",
         "32": "icon.png",
         "48": "icon.png",
         "128": "icon.png"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_title": "Toggle color inversion for this site"
+    },
+    "background": {
+        "service_worker": "background.js"
     },
     "content_scripts": [
         {
@@ -16,7 +30,11 @@
             ],
             "css": [
                 "content.css"
-            ]
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_start"
         }
     ]
 }
